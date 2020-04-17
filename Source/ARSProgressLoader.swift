@@ -38,6 +38,7 @@ final class ARSProgressLoader: ARSLoader {
 	@objc weak var targetView: UIView?
 	
 	init() {
+        emptyView.isUserInteractionEnabled = false
 		backgroundBlurView = ARSBlurredBackgroundRect().view
 		backgroundSimpleView = ARSSimpleBackgroundRect().view
 		backgroundFullView = ARSFullBackgroundRect().view

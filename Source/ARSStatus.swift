@@ -33,9 +33,13 @@ final class ARSStatus: ARSLoader {
 	}
 	
 	init() {
+        emptyView.isUserInteractionEnabled = false
 		backgroundBlurView = ARSBlurredBackgroundRect().view
+        backgroundBlurView.isUserInteractionEnabled = false
 		backgroundSimpleView = ARSSimpleBackgroundRect().view
 		backgroundFullView = ARSFullBackgroundRect().view
+        backgroundSimpleView.isUserInteractionEnabled = false
+        backgroundFullView.isUserInteractionEnabled = false
 		ars_createdFrameForBackgroundView(backgroundView, onView: nil)
 		NotificationCenter.default.addObserver(self,
 		                                       selector: #selector(ARSInfiniteLoader.orientationChanged(_:)),
@@ -73,7 +77,11 @@ final class ARSStatus: ARSLoader {
 			})
 		}
 	}
-	
+    
+    static func hide(){
+        ars_hideLoader(ars_currentStatus, withCompletionBlock: nil)
+    }
+    
     static func drawStatus(_ type: ARSStatusType, loader: ARSLoader, withHide: Bool) {
 		ars_currentStatus = loader
 		

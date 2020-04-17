@@ -32,9 +32,13 @@ final class ARSInfiniteLoader: ARSLoader {
 	@objc weak var targetView: UIView?
 	
 	init() {
+        emptyView.isUserInteractionEnabled = false
 		backgroundBlurView = ARSBlurredBackgroundRect().view
+        backgroundBlurView.isUserInteractionEnabled = false
 		backgroundSimpleView = ARSSimpleBackgroundRect().view
 		backgroundFullView = ARSFullBackgroundRect().view
+        backgroundSimpleView.isUserInteractionEnabled = false
+        backgroundFullView.isUserInteractionEnabled = false
 		NotificationCenter.default.addObserver(self,
 		                                       selector: #selector(ARSInfiniteLoader.orientationChanged(_:)),
 		                                       name: UIDevice.orientationDidChangeNotification,
@@ -67,6 +71,7 @@ extension ARSInfiniteLoader {
 		if ars_createdFrameForBackgroundView(backgroundView, onView: view) == false { return }
 		
 		targetView = view
+        targetView?.isUserInteractionEnabled = false
 		
 		ars_createCircles(outerCircle,
 		                  middleCircle: middleCircle,

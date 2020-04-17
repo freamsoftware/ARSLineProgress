@@ -73,6 +73,7 @@ class ARSBlurredBackgroundRect {
 	init() {
 		let blur = UIBlurEffect(style: ars_config.blurStyle)
 		let effectView = UIVisualEffectView(effect: blur)
+        effectView.isUserInteractionEnabled = false
 		effectView.clipsToBounds = true
 		
 		view = effectView
@@ -86,6 +87,7 @@ class ARSSimpleBackgroundRect {
 	
 	init() {
 		let simpleView = UIView()
+        simpleView.isUserInteractionEnabled = false
 		simpleView.backgroundColor = UIColor(cgColor: ars_config.backgroundViewColor)
 		
 		view = simpleView
@@ -98,13 +100,15 @@ class ARSFullBackgroundRect {
 	
 	init() {
 		let fullView = UIView()
+        fullView.isUserInteractionEnabled = false
 		fullView.backgroundColor = UIColor(cgColor: ars_config.backgroundViewColor)
 		
 		view = fullView
 	}
 }
 
-func ars_createCircles(_ outerCircle: CAShapeLayer, middleCircle: CAShapeLayer, innerCircle: CAShapeLayer, onView view: UIView, loaderType: ARSLoaderType) {
+func ars_createCircles(_ outerCircle: CAShapeLayer, middleCircle: CAShapeLayer, innerCircle: CAShapeLayer, onView view: UIView, loaderType: ARSLoaderType) {	
+    view.isUserInteractionEnabled = false
 	let circleRadiusOuter = ARS_CIRCLE_RADIUS_OUTER
 	let circleRadiusMiddle = ARS_CIRCLE_RADIUS_MIDDLE
 	let circleRadiusInner = ARS_CIRCLE_RADIUS_INNER
