@@ -20,17 +20,17 @@ import UIKit
     
     
     /** 
-        Will interrupt the current .Infinite loader progress and show success animation instead.
-    */
-    public static func showSuccess() {
-        if !statusShown { ARSStatus.show(.success) }
+     Will interrupt the current .Infinite loader progress and show success animation instead.
+     */
+    public static func showSuccess(withHide: Bool) {
+        if !statusShown { ARSStatus.show(.success, withHide: withHide) }
     }
     
     /**
-        Will interrupt the current .Infinite loader progress and show fail animation instead.
-    */
-    public static func showFail() {
-        if !statusShown { ARSStatus.show(.fail) }
+     Will interrupt the current .Infinite loader progress and show fail animation instead.
+     */
+    public static func showFail(withHide: Bool) {
+        if !statusShown { ARSStatus.show(.fail, withHide: withHide) }
     }
     
     
