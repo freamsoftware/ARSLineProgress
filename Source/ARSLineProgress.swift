@@ -38,7 +38,8 @@ import UIKit
     
     
     public static func show() {
-        ARSStatus.hide()
+        ars_currentLoader?.emptyView.removeFromSuperview()
+        ars_currentStatus?.emptyView.removeFromSuperview()
         ars_currentLoader = nil
         ars_currentStatus = nil
         if !shown { ARSInfiniteLoader().ars_showOnView(nil, completionBlock: nil) }
